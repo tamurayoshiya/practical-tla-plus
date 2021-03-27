@@ -3,13 +3,12 @@
 EXTENDS Integers
 
 (*--algorithm wire
-variables
-    people = {"alice", "bob"},
+    variables
+        people = {"alice", "bob"},
         acc = [p \in people |-> 5];
-  
+        
 define
     NoOverdrafts == \A p \in people: acc[p] >= 0
-    EventuallyConsistent == <>[](acc["alice"] + acc["bob"] = 10)
 end define;
 
 process Wire \in 1..2
@@ -17,7 +16,7 @@ process Wire \in 1..2
         sender = "alice",
         receiver = "bob",
         amount \in 1..acc[sender];
-    
+        
     begin
         CheckAndWithdraw:
             if amount <= acc[sender] then
@@ -25,7 +24,7 @@ process Wire \in 1..2
                 Deposit:
                     acc[receiver] := acc[receiver] + amount;
             end if;
-end process;
+    end process;
 end algorithm;*)
 
 
@@ -34,7 +33,6 @@ VARIABLES people, acc, pc
 
 (* define statement *)
 NoOverdrafts == \A p \in people: acc[p] >= 0
-EventuallyConsistent == <>[](acc["alice"] + acc["bob"] = 10)
 
 VARIABLES sender, receiver, amount
 
@@ -79,5 +77,5 @@ Termination == <>(\A self \in ProcSet: pc[self] = "Done")
 
 =============================================================================
 \* Modification History
-\* Last modified Mon May 03 14:23:59 JST 2021 by tamurayoshiya
+\* Last modified Mon May 03 14:06:59 JST 2021 by tamurayoshiya
 \* Created Sun May 02 16:38:39 JST 2021 by tamurayoshiya
