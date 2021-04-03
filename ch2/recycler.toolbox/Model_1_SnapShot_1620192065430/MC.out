@@ -1,0 +1,218 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.13 of 18 July 2018
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with seed 3010817905595726223 with 2 workers on 4 cores with 4098MB heap and 8191MB offheap memory (Mac OS X 10.15.7 x86_64, Oracle Corporation 10.0.2 x86_64).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /Users/tamurayoshiya/projects/practical-tla-plus/ch2/recycler.toolbox/Model_1/MC.tla
+Parsing file /Users/tamurayoshiya/projects/practical-tla-plus/ch2/recycler.toolbox/Model_1/recycler.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/TLC.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/Sequences.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/Integers.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/FiniteSets.tla
+Parsing file /Applications/TLA+ Toolbox.app/Contents/Eclipse/plugins/org.lamport.tlatools_1.0.0.201807180447/tla2sany/StandardModules/Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module Integers
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module recycler
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2021-05-05 14:20:56)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2190:0 @!@!@
+Finished computing initial states: 1 distinct state generated.
+@!@!@ENDMSG 2190 @!@!@
+@!@!@STARTMSG 2144:3 @!@!@
+The EXCEPT was applied to non-existing fields of the value at
+line 68, col 56 to line 68, col 60 of module recycler
+@!@!@ENDMSG 2144 @!@!@
+@!@!@STARTMSG 1000:1 @!@!@
+TLC threw an unexpected exception.
+This was probably caused by an error in the spec or model.
+See the User Output or TLC Console for clues to what happened.
+The exception was a java.lang.RuntimeException
+: Attempted to select nonexistent field "trash" from the record
+[recycle |-> 2, transh |-> 0]
+line 75, col 57 to line 75, col 67 of module recycler
+@!@!@ENDMSG 1000 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ capacity = [trash |-> 10, recycle |-> 10]
+/\ curr = ""
+/\ bins = [trash |-> {}, recycle |-> {}]
+/\ items = << [type |-> "recycle", size |-> 5],
+   [type |-> "trash", size |-> 5],
+   [type |-> "recycle", size |-> 4],
+   [type |-> "recycle", size |-> 3] >>
+/\ pc = "Lbl_1"
+/\ count = [recycle |-> 0, transh |-> 0]
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <Lbl_1 line 57, col 10 to line 80, col 73 of module recycler>
+/\ capacity = [trash |-> 10, recycle |-> 5]
+/\ curr = [type |-> "recycle", size |-> 5]
+/\ bins = [trash |-> {}, recycle |-> {[type |-> "recycle", size |-> 5]}]
+/\ items = << [type |-> "trash", size |-> 5],
+   [type |-> "recycle", size |-> 4],
+   [type |-> "recycle", size |-> 3] >>
+/\ pc = "Lbl_1"
+/\ count = [recycle |-> 1, transh |-> 0]
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <Lbl_1 line 57, col 10 to line 80, col 73 of module recycler>
+/\ capacity = [trash |-> 5, recycle |-> 5]
+/\ curr = [type |-> "trash", size |-> 5]
+/\ bins = [ trash |-> {[type |-> "trash", size |-> 5]},
+  recycle |-> {[type |-> "recycle", size |-> 5]} ]
+/\ items = <<[type |-> "recycle", size |-> 4], [type |-> "recycle", size |-> 3]>>
+/\ pc = "Lbl_1"
+/\ count = [recycle |-> 1, transh |-> 0]
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <Lbl_1 line 57, col 10 to line 80, col 73 of module recycler>
+/\ capacity = [trash |-> 5, recycle |-> 1]
+/\ curr = [type |-> "recycle", size |-> 4]
+/\ bins = [ trash |-> {[type |-> "trash", size |-> 5]},
+  recycle |->
+      {[type |-> "recycle", size |-> 4], [type |-> "recycle", size |-> 5]} ]
+/\ items = <<[type |-> "recycle", size |-> 3]>>
+/\ pc = "Lbl_1"
+/\ count = [recycle |-> 2, transh |-> 0]
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <Lbl_1 line 57, col 10 to line 80, col 73 of module recycler>
+/\ capacity = [trash |-> 2, recycle |-> 1]
+/\ curr = [type |-> "recycle", size |-> 3]
+/\ bins = [ trash |-> {[type |-> "trash", size |-> 5], [type |-> "recycle", size |-> 3]},
+  recycle |->
+      {[type |-> "recycle", size |-> 4], [type |-> "recycle", size |-> 5]} ]
+/\ items = <<>>
+/\ pc = "Lbl_1"
+/\ count = [recycle |-> 2, transh |-> 0]
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2103:1 @!@!@
+The error occurred when TLC was evaluating the nested
+expressions at the following positions:
+0. Line 57, column 10 to line 80, column 73 in recycler
+1. Line 57, column 13 to line 57, column 24 in recycler
+2. Line 58, column 13 to line 80, column 73 in recycler
+3. Line 73, column 21 to line 80, column 73 in recycler
+4. Line 73, column 24 to line 74, column 75 in recycler
+5. Line 75, column 24 to line 76, column 75 in recycler
+6. Line 75, column 31 to line 75, column 67 in recycler
+7. Line 75, column 57 to line 75, column 67 in recycler
+
+
+@!@!@ENDMSG 2103 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2021-05-05 14:21:02
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 12 to line 42, col 19 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 22 to line 42, col 25 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 28 to line 42, col 32 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 35 to line 42, col 39 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 42 to line 42, col 45 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 42, col 48 to line 42, col 49 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 59, col 24 to line 59, col 42 of module recycler: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 60, col 24 to line 60, col 43 of module recycler: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 62, col 35 to line 62, col 101 of module recycler: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 63, col 35 to line 63, col 111 of module recycler: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 64, col 35 to line 64, col 93 of module recycler: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 66, col 46 to line 66, col 108 of module recycler: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 67, col 46 to line 67, col 118 of module recycler: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 68, col 46 to line 68, col 100 of module recycler: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 70, col 59 to line 70, col 66 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 70, col 69 to line 70, col 72 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 71, col 59 to line 71, col 63 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 72, col 24 to line 72, col 36 of module recycler: 4
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 79, col 24 to line 79, col 35 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 37 to line 80, col 44 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 47 to line 80, col 50 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 53 to line 80, col 57 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 60 to line 80, col 64 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 80, col 67 to line 80, col 70 of module recycler: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(5) at 2021-05-05 14:21:02: 5 states generated (54 s/min), 5 distinct states found (54 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+5 states generated, 5 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2194:0 @!@!@
+The depth of the complete state graph search is 5.
+@!@!@ENDMSG 2194 @!@!@
+@!@!@STARTMSG 2268:0 @!@!@
+The average outdegree of the complete state graph is 1 (minimum is 1, the maximum 1 and the 95th percentile is 1).
+@!@!@ENDMSG 2268 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 6236ms at (2021-05-05 14:21:02)
+@!@!@ENDMSG 2186 @!@!@
